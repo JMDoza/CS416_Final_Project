@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{#=======================================================================#}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block carousel %}
+    <div class="carousel-inner">
+        <div class="carousel-item c-item ">
+            <img class="d-block w-100 static-img c-img c-img-test" src="" alt=""
+                 style="background-image: url('{% static 'images/cat1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/cat2.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item active">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog2.jpg' %}');">
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block discover %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block nav %}
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Home<span
+                class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'find' %}"><i class="fas fa-map-marked-alt"></i> Find Us</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-users"></i> About Us</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+            Pets
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right bg-color-4" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-white" href="{% url 'cat_search' %}"><i class="fas fa-cat"></i> Cats</a>
+            <a class="dropdown-item text-white" href="{% url 'dog_search' %}"><i class="fas fa-dog"></i> Dogs</a>
+        </div>
+    </li>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block body %}
+    <div class="container mt-5 py-3 px-5 mx-auto">
+        <div class="row ">
+            <div class="col-md-6 col-lg-7 col-xl-8 text-white">
+                <h1>{{ pet.name }}</h1>
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4 text-light ">
+                <h5 class="align-text-bottom mt-4 text-end">Arrived: {{ pet.arrived }}</h5>
+            </div>
+        </div>
+        <hr style="background-color: white">
+        <div class="row ">
+            <div class="col-12 col-lg-4 align-items-stretch ">
+                <div class="card card-color mb-3">
+                    <img class="card-img-top" src="{{ MEDIA_URL }}{{ pet.img }}" alt="">
+                    <h3 class="card-title px-3 mt-4">Primary Information</h3>
+                    <hr class="mx-auto" style="background-color: white; width: 90%">
+                    <div class="card-body px-4">
+                        <h5 class="lead">Age: {{ pet.age }}</h5>
+                        <h5 class="lead">Breed: {{ pet.breed }}</h5>
+                        <h5 class="lead">Gender: {{ pet.gender }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 d-flex align-items-stretch ">
+                <div class="card card-color mb-3">
+                    <h1 class="card-title px-5 py-4 my-1">Description</h1>
+                    <hr class="mx-auto" style="background-color: white; width: 90%">
+                    <div class="card-body px-5 text">
+                        <p class="lead">{{ pet.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block js %}
+
+{% endblock %}
+

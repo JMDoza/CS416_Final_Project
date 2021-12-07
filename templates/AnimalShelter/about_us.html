@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block carousel %}
+    <div class="carousel-inner">
+        <div class="carousel-item c-item ">
+            <img class="d-block w-100 static-img c-img c-img-test" src="" alt=""
+                 style="background-image: url('{% static 'images/cat1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/cat2.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item active">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog2.jpg' %}');">
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block discover %}
+
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'find' %}"><i class="fas fa-map-marked-alt"></i> Find Us</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-users"></i> About Us<span
+                class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+            Pets
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right bg-color-4" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-white" href="{% url 'cat_search' %}"><i class="fas fa-cat"></i> Cats</a>
+            <a class="dropdown-item text-white" href="{% url 'dog_search' %}"><i class="fas fa-dog"></i> Dogs</a>
+        </div>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <div class="container shadow rounded mt-4">
+        <div class="row align-items-center card-color">
+            <div class="col-12 col-lg-12 p-3 order-2 order-lg-1">
+                <h4 class="text-md-start text-center display-3 fw-bold text-white">Mission Statement</h4>
+                <hr style="width:75%;height:2px;border-width:0;color:darkgray;background-color:darkgray">
+                <p class="lead text-center px-5">We hope to protect and improve the lives of animals that have been
+                    abused and abandoned and encourage
+                    people to adopt them so that these animals have an opportunity to live a proper life in a secure and
+                    loving home.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container shadow rounded mt-4">
+        <div class="row align-items-center card-color">
+            <div class="col-12 col-lg-6 p-5 order-2 order-lg-1">
+                <h4 class="text-md-start fw-bold text-white display-4">Goals</h4>
+                <p class="lead fw-normal text-white">What we hope to accomplish:</p>
+                <ul class="list-group list-group-flush order-4">
+                    <li class="list-group-item text-light bg-transparent">Maintain quality of care for the animals
+                        within our shelter
+                    </li>
+                    <li class="list-group-item text-light bg-transparent">Return pets to their rightful owners</li>
+                    <li class="list-group-item text-light bg-transparent">Look for the best candidates that will home
+                        pets
+                    </li>
+                    <li class="list-group-item text-light bg-transparent">Transparency in our adoption process</li>
+                    <li class="list-group-item text-light bg-transparent">Make sure those adopting are educated in
+                        proper care for the pet they are adopting
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-6 order-1 order-lg-2 px-0 pr-lg-3">
+                <img src="{% static 'images/dog3.jpg' %}" class="img-fluid img-border-r" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-6 ">
+                <div class="card staff card-color mb-3">
+                    <img class="staff-img" src="{% static 'images/employee1.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Ella Clegg</h4>
+                        <p class=" lead card-text mb-3">Manager</p>
+                        <p class="lead card-text mb-3">Phone: 203-584-8811</p>
+                        <p class="lead card-text mb-3">Email: E.Clegg@gmail.com</p>
+                    </div>
+                </div>
+                <div class="card staff card-color mb-3">
+                    <img class="staff-img" src="{% static 'images/employee2.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title">Anderson Ware</h3>
+                        <p class=" lead card-text mb-3">Adoption Counselor</p>
+                        <p class="lead card-text mb-3">Phone: 203-618-2245</p>
+                        <p class="lead card-text mb-3">Email: A.Ware@gmail.com</p>
+                    </div>
+                </div>
+                <div class="card staff card-color mb-3">
+                    <img class="staff-img" src="{% static 'images/employee3.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">Giovanni Beech</h4>
+                        <p class=" lead card-text mb-3">Animal Control Officer</p>
+                        <p class="lead card-text mb-3">Phone: 203-741-6377</p>
+                        <p class="lead card-text mb-3">Email: G.Beech@gmail.com</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-lg-6 d-flex align-items-stretch">
+                <div class="card contact card-color mb-3 mx-auto">
+
+                    <form class="card-body mx-auto px-5" enctype='multipart/form-data' action="{% url 'about' %}" method="post" style="width: 690px">
+                        <h4 class="card-title">Contact</h4>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-lg btn-color text-white" type="submit" value="Send">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

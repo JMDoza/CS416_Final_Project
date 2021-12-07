@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{#=======================================================================#}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block carousel %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block discover %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block nav %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block body %}
+
+    <div class="container text-white">
+        <h1>Cat Form</h1>
+        <form method="post" enctype='multipart/form-data' action="">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="my-3">
+                <a href="{% url 'dashboard' %}" class="btn btn-color-outline"><i class="fas fa-arrow-left"></i> Go Back</a>
+                <button type="reset" class="btn btn-warning"><i class="fas fa-redo-alt"></i> Reset</button>
+                <button type="submit" class="btn btn-color"><i class="fas fa-save"></i> Save</button>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block js %}
+
+{% endblock %}
+

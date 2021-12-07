@@ -1,0 +1,146 @@
+body {
+    background-color: rgba(52, 63, 62, .9);
+}
+
+.bg-color-5 {
+    background-color: #343f3e;
+}
+
+.bg-color-4 {
+    background-color: #505a5b;
+}
+
+.dropdown-menu > a:hover, .dropdown-menu > a:focus {
+    background-color: #343f3e;
+    color: white;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    background-position: 50% 50%;
+    background-attachment: local;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.card-color {
+    background-color: rgba(148, 176, 218, .35);
+    border-color: rgba(148, 176, 218, .5);
+    border-radius: 50px;
+    color: white;
+    padding: 0;
+    margin: 0 0;
+    border-width: 0;
+}
+
+.card-h:hover {
+    background-color: rgba(148, 176, 218, .75);
+    outline: 2px solid rgba(148, 176, 218, .75);
+    text-decoration: none;
+}
+
+.card-img-top {
+    width: 100%;
+    min-height: 340px;
+    height: 15vw;
+    object-fit: cover;
+    border-radius: 50px 50px 0px 0px;
+}
+
+footer {
+    height: 75px;
+    background-color: rgba(52, 63, 62, 1)
+}
+
+.featured {
+    border: 2px solid rgba(148, 176, 218, .75);
+    border-radius: 50px;
+    color: white;
+
+}
+
+@media only screen and (min-width: 992px) {
+    .contact {
+        flex-direction: row;
+        border-radius: 0px 50px 50px 0px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .contact {
+        flex-direction: row;
+        border-radius: 50px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .staff {
+        flex-direction: row;
+        border-radius: 50px 0px 0px 50px;
+    }
+
+}
+
+@media only screen and (max-width: 991px) {
+    .staff {
+        flex-direction: row;
+        border-radius: 50px;
+    }
+}
+
+.staff-img {
+    width: 30%;
+    object-fit: cover;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.btn-color {
+    background-color: rgba(148, 176, 218, 1);
+}
+
+.btn-color:hover {
+    background-color: rgba(148, 176, 218, .75);
+}
+
+.btn-color-outline {
+    background-color: transparent;
+    outline: 2px solid rgba(148, 176, 218, 1);
+    color: rgba(148, 176, 218, 1);
+}
+
+.btn-color-outline:hover {
+    background-color: rgba(148, 176, 218, .75);
+    outline: 2px solid rgba(148, 176, 218, .75);
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #8888;
+    border-radius: 10px;
+}
+
+/* Handle background*/
+::-webkit-scrollbar-track-piece {
+    background: transparent;
+    width: 0;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}

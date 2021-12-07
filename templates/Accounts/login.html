@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{#=======================================================================#}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block carousel %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block discover %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block nav %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block body %}
+
+    <div class="container my-5 ">
+        <div class="row justify-content-center">
+            <div class="col-12  col-md-8">
+                <div class="card bg-color-5">
+                    <div class="card-body text-white">
+                        <h1>Login</h1>
+                        <form action="{% url 'login' %}" method="post" novalidate>
+                            {% csrf_token %}
+                            {{ form|crispy }}
+
+                            <div class="d-grid gap-2 my-3 ">
+                                {% comment %}
+                            for more informarition, visit: https://getbootstrap.com/docs/5.1/components/buttons/#block-buttons
+                            {% endcomment %}
+                                <button class="btn btn-lg btn-color text-white" type="submit"><i class="fas fa-sign-in-alt"></i>
+                                    Login
+                                </button>
+                                <hr class="bg-light">
+                                <a href="{% url 'register' %}" class="btn btn-lg btn-color-outline"><i
+                                        class="fas fa-plus"></i> Create a new account</a>
+                                <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block js %}
+
+{% endblock %}
+

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block carousel %}
+    <div class="carousel-inner">
+        <div class="carousel-item c-item-home active">
+            <img class="d-block w-100" src="" alt="" style="background-image: url('{% static 'images/cat1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item-home">
+            <img class="d-block w-100" src="" alt="" style="background-image: url('{% static 'images/dog1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item-home">
+            <img class="d-block w-100" src="" alt="" style="background-image: url('{% static 'images/cat2.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item-home">
+            <img class="d-block w-100" src="" alt="" style="background-image: url('{% static 'images/dog2.jpg' %}');">
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block discover %}
+    <div class="container static-head">
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-sm-10 col-md-8 text-center prompt">
+                <h1 class="text-center fw-bold" style="color: black">DISCOVER YOUR COMPANION</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <a href="{% url 'cat_search' %}"
+               class="col-8 col-sm-6 col-md-4 col-lg-3 prompt prompt-h text-center py-5 mx-1 mx-lg-5 mb-3 mb-md-0">
+                <i class="fas fa-cat fa-10x"></i>
+            </a>
+            <a href="{% url 'dog_search' %}"
+               class="col-8 col-sm-6 col-md-4 col-lg-3 prompt prompt-h text-center py-5 mx-lg-5">
+                <i class="fas fa-dog fa-10x"></i>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Home<span
+                class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'find' %}"><i class="fas fa-map-marked-alt"></i> Find Us</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-users"></i> About Us</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+            Pets
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right bg-color-4" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-white" href="{% url 'cat_search' %}"><i class="fas fa-cat"></i> Cats</a>
+            <a class="dropdown-item text-white" href="{% url 'dog_search' %}"><i class="fas fa-dog"></i> Dogs</a>
+        </div>
+    </li>
+
+{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 text-center featured">
+                <h1>FEATURED PETS</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-9  col-lg-4 d-flex align-items-stretch ">
+                <a href="{% url 'dog_profile' feat_1.id %}" class="card card-color card-h mb-3 fit text-white mx-auto">
+                    <img class="card-img-top" src="{{ MEDIA_URL }}{{ feat_1.img }}" alt="">
+                    <div class="card-body px-5">
+                        <h4 class="card-title">{{ feat_1.name }}</h4>
+                        <hr class="mx-auto" style="background-color: white; width: 100%">
+                        <h5 class="lead">Age: {{ feat_1.age }}</h5>
+                        <h5 class="lead">Breed: {{ feat_1.breed }}</h5>
+                        <h5 class="lead">Gender: {{ feat_1.gender }}</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-9  col-lg-4 d-flex align-items-stretch ">
+                <a href="{% url 'cat_profile' feat_2.id %}" class="card card-color card-h mb-3 fit text-white mx-auto">
+                    <img class="card-img-top" src="{{ MEDIA_URL }}{{ feat_2.img }}" alt="">
+                    <div class="card-body px-5">
+                        <h4 class="card-title">{{ feat_2.name }}</h4>
+                        <hr class="mx-auto" style="background-color: white; width: 100%">
+                        <h5 class="lead">Age: {{ feat_2.age }}</h5>
+                        <h5 class="lead">Breed: {{ feat_2.breed }}</h5>
+                        <h5 class="lead">Gender: {{ feat_2.gender }}</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-9  col-lg-4 d-flex align-items-stretch ">
+                <a href="{% url 'dog_profile' feat_3.id %}" class="card card-color card-h mb-3 fit text-white mx-auto">
+                    <img class="card-img-top" src="{{ MEDIA_URL }}{{ feat_3.img }}" alt="">
+                    <div class="card-body px-5">
+                        <h4 class="card-title">{{ feat_3.name }}</h4>
+                        <hr class="mx-auto" style="background-color: white; width: 100%">
+                        <h5 class="lead">Age: {{ feat_3.age }}</h5>
+                        <h5 class="lead">Breed: {{ feat_3.breed }}</h5>
+                        <h5 class="lead">Gender: {{ feat_3.gender }}</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center my-5">
+            <div class="col-12 col-lg-8 text-center featured">
+                <h1>EVERY PET DESERVES A CHANCE</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}

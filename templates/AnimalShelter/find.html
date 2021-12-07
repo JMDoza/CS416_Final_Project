@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/find.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+{% endblock %}
+
+{% block carousel %}
+    <div class="carousel-inner">
+        <div class="carousel-item c-item ">
+            <img class="d-block w-100 static-img c-img c-img-test" src="" alt=""
+                 style="background-image: url('{% static 'images/cat1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/cat2.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item active">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog2.jpg' %}');">
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block discover %}
+
+{% endblock %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Home</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'find' %}"><i class="fas fa-map-marked-alt"></i> Find Us<span
+                class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-users"></i> About Us</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+            Pets
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right bg-color-4" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-white" href="{% url 'cat_search' %}"><i class="fas fa-cat"></i> Cats</a>
+            <a class="dropdown-item text-white" href="{% url 'dog_search' %}"><i class="fas fa-dog"></i> Dogs</a>
+        </div>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-7 order-2 order-lg-1 my-3">
+                <div class="input-group mb-3 justify-content-center">
+                    <button id="search" class="btn btn-success" type="button">SEARCH NEAR BY</button>
+                </div>
+                <div style="overflow: auto; max-height: 550px">
+                    <div id="results" class="px-4 my-1 ">
+
+                    </div>
+                </div>
+
+            </div>
+            <!--The div element for the map -->
+            <div id="map" class="col-12 col-lg-5 order-1 order-lg-2 mt-5"></div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <script src="{% static 'js/find.js' %}"></script>
+
+{% endblock %}

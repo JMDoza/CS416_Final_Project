@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{#=======================================================================#}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pet_search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/find.css' %}">
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block carousel %}
+    <div class="carousel-inner">
+        <div class="carousel-item c-item ">
+            <img class="d-block w-100 static-img c-img c-img-test" src="" alt=""
+                 style="background-image: url('{% static 'images/cat1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog1.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/cat2.jpg' %}');">
+        </div>
+        <div class="carousel-item c-item active">
+            <img class="d-block w-100 static-img" src="" alt=""
+                 style="background-image: url('{% static 'images/dog2.jpg' %}');">
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block discover %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'find' %}"><i class="fas fa-map-marked-alt"></i> Find Us</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-users"></i> About Us</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+            Pets<span class="sr-only">(current)</span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right bg-color-4" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-white" href="{% url 'cat_search' %}"><i class="fas fa-cat"></i> Cats</a>
+            <a class="dropdown-item text-white" href="{% url 'dog_search' %}"><i class="fas fa-dog"></i> Dogs</a>
+        </div>
+    </li>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block body %}
+
+    <div class="container text-center my-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-3 card-color p-3 mx-md-3 mb-3 mb-md-0 align-items-stretch">
+                <h2 class="my-3">{{ database|upper }}</h2>
+                {% if database == 'cats' %}
+                    <form enctype='multipart/form-data' action="{% url 'cat_search' %}" method="post">
+                {% elif database == 'dogs' %}
+                    <form enctype='multipart/form-data' action="{% url 'dog_search' %}" method="post">
+                {% endif %}
+
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-lg btn-color text-white" type="submit" value="Search">
+                </form>
+            </div>
+
+            <div class="col-12 col-md-8 card-color align-items-stretch" style="overflow: auto; max-height: 800px">
+                <div class="row mx-auto">
+                    {% for pet in pets %}
+                        <div class="col-md-6 col-lg-4 d-flex align-items-stretch mt-3 px-2">
+                            {% if database == 'cats' %}
+                                <a href="{% url 'cat_profile' pet.id %}"
+                            {% elif database == 'dogs' %}
+                                <a href="{% url 'dog_profile' pet.id %}"
+                            {% endif %}
+
+                                   class="card card-color card-h mb-3 fit text-white mx-auto">
+                                <img class="img-top" src="{{ MEDIA_URL }}{{ pet.img }}" alt="">
+                                <div class="card-body pt-2">
+                                    <h4 class="card-title">{{ pet.name }}</h4>
+                                    <div class="card-text">
+                                        <div>Gender: {{ pet.gender }}</div>
+                                        <div>Breed: {{ pet.breed }}</div>
+                                        <div>Age: {{ pet.age }}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+
+    </div>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block js %}
+
+{% endblock %}
+

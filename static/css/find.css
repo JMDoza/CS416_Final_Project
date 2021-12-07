@@ -1,0 +1,48 @@
+.carousel .carousel-item {
+    height: 400px;
+}
+
+.carousel-item img {
+    min-height: 400px;
+}
+
+#map {
+    height: 600px;
+    /* The height is 400 pixels */
+    width: 500px;
+    /* The width is the width of the web page */
+}
+
+.business-color {
+    background-color: transparent;
+    outline: 2px solid rgba(148, 176, 218, .25);
+    color: white;
+    padding: 0;
+    margin: 0 0;
+    border-width: 0;
+}
+
+.business-color:hover {
+    outline: 2px solid rgba(148, 176, 218, .75);
+    color: white;
+}
+
+
+@media only screen and (min-width: 576px) {
+    .business-img {
+        width: 100%;
+        min-height: 246px;
+        object-fit: cover;
+        border-radius: 50px 0px 0px 50px;
+    }
+
+}
+
+@media only screen and (max-width: 575px) {
+    .business-img {
+        width: 100%;
+        min-height: 246px;
+        object-fit: cover;
+        border-radius: 50px 50px 0px 0px;
+    }
+}

@@ -1,0 +1,47 @@
+.carousel .carousel-item {
+    height: 400px;
+}
+
+.carousel-item img {
+    min-height: 400px;
+}
+
+.img-border-r {
+    border-radius: 50px;
+}
+
+@media only screen and (min-width: 992px) {
+    .contact {
+        flex-direction: row;
+        border-radius: 0px 50px 50px 0px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .contact {
+        flex-direction: row;
+        border-radius: 50px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .staff {
+        flex-direction: row;
+        border-radius: 50px 0px 0px 50px;
+    }
+
+}
+
+@media only screen and (max-width: 991px) {
+    .staff {
+        flex-direction: row;
+        border-radius: 50px;
+    }
+}
+
+
+.staff img {
+    width: 30%;
+    object-fit: cover;
+    border-radius: 50px 0px 0px 50px;
+}

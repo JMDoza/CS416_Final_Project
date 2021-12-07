@@ -1,0 +1,40 @@
+.carousel .carousel-item {
+    height: 700px;
+}
+
+.carousel-item img {
+    min-height: 700px;
+}
+
+.static-head {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+@media only screen and (min-width: 768px) {
+    .static-head {
+        top: 200px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .static-head {
+        top: 35px;
+    }
+}
+
+.prompt {
+    background-color: rgba(148, 176, 218, .5);
+    color: rgba(52, 63, 62, 1);
+    border-radius: 30px;
+}
+
+.prompt-h:hover {
+    background-color: rgba(148, 176, 218, .9);
+    color: rgba(80, 90, 91, 1);
+}
+

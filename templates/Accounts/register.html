@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{#=======================================================================#}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block carousel %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block discover %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block nav %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="card bg-color-5">
+                    <div class="card-body text-white">
+                        <h1>Register</h1>
+                        <form action="{% url 'register' %}" method="post" novalidate>
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-lg btn-color-outline"><i class="fas fa-check"></i>
+                                Register
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block js %}
+
+{% endblock %}

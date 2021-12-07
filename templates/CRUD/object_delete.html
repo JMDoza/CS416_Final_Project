@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{#=======================================================================#}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block carousel %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block discover %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block nav %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block body %}
+
+    <div class="container text-white my-5">
+        <h1>Confirm</h1>
+        {% if database == 'cats' %}
+            <form method="post" action="{% url 'delete_cat' item.id %}">
+        {% elif database == 'dogs' %}
+            <form method="post" action="{% url 'delete_dog' item.id %}">
+        {% elif database == 'cbreed' %}
+            <form method="post" action="{% url 'delete_cbreed' item.id %}">
+        {% elif database == 'dbreed' %}
+            <form method="post" action="{% url 'delete_dbreed' item.id %}">
+        {% endif %}
+        {% csrf_token %}
+        <h4>Are you sure that you want to delete
+            <span class="badge bg-danger">{{ item }}</span>?</h4>
+
+        <a href="{% url 'dashboard' %}" class="btn btn-color-outline mx-1"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <button type="submit" class="btn btn-danger">Yes, I am sure!</button>
+        </form>
+    </div>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block js %}
+
+{% endblock %}
+

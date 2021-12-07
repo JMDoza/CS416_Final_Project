@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{#=======================================================================#}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block carousel %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block discover %}
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-home"></i> Return<span
+                class="sr-only">(current)</span></a>
+    </li>
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block body %}
+
+    <div class="container text-white">
+        <h1>Cats</h1>
+        <table id="test" class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Breed</th>
+                <th scope="col">Age</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for cat in cats %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ cat.name }}</td>
+                    <td>{{ cat.gender }}</td>
+                    <td>{{ cat.breed }}</td>
+                    <td>{{ cat.age }}</td>
+                    <td>
+                        <a href="{% url 'update_cat' cat.id %}" class="update-icon">
+                            <i class="fas fa-edit "></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_cat' cat.id %}" class="delete-icon">
+                            <i class="fas fa-trash text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_cat' %}" class="btn btn-color-outline"><i class="fas fa-plus"></i> Add new cat</a>
+
+        <hr>
+
+        <h1>Cat Breeds</h1>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for breed in cbreeds %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ breed.cat_breed_name }}</td>
+                    <td>
+                        <a href="{% url 'update_cbreed' breed.id %}" class="update-icon">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_cbreed' breed.id %}" class="delete-icon">
+                            <i class="fas fa-trash text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_cbreed' %}" class="btn btn-color-outline"><i class="fas fa-plus"></i> Add new cat breed</a>
+
+        <hr>
+
+        <h1>Dogs</h1>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Breed</th>
+                <th scope="col">Age</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for dog in dogs %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ dog.name }}</td>
+                    <td>{{ dog.gender }}</td>
+                    <td>{{ dog.breed }}</td>
+                    <td>{{ dog.age }}</td>
+                    <td>
+                        <a href="{% url 'update_dog' dog.id %}" class="update-icon">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_dog' dog.id %}" class="delete-icon">
+                            <i class="fas fa-trash text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_dog' %}" class="btn btn-color-outline"><i class="fas fa-plus"></i> Add new dog</a>
+
+        <hr>
+
+        <h1>Dog Breeds</h1>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for breed in dbreeds %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ breed.dog_breed_name }}</td>
+                    <td>
+                        <a href="{% url 'update_dbreed' breed.id %}" class="update-icon">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_dbreed' breed.id %}" class="delete-icon">
+                            <i class="fas fa-trash text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_dbreed' %}" class="btn btn-color-outline"><i class="fas fa-plus"></i> Add new dog breed</a>
+
+    </div>
+
+{% endblock %}
+
+{#=======================================================================#}
+
+{% block js %}
+
+{% endblock %}
+
